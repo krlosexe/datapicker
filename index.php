@@ -23,14 +23,13 @@
 
 	function diaSemana(){
 	    var dias=["dom", "lun", "mar", "mie", "jue", "vie", "sab"];
-	    var cont = 0;
+	    var cont = 25;
 	    $.each( dias, function( key, value ) {
-	    	cont = cont + 1;
 	      var dt = new Date('2018-05-'+cont);
 		  
-		  //var input  = 'Dia de la semana : '+ cont + ' - '+ dias[dt.getUTCDay()]+'<br>';
-		   var input  = '<div><label for="'+dias[dt.getUTCDay()]+'">'+dias[dt.getUTCDay()]+'</label><input type="radio" name="dia" id="'+dias[dt.getUTCDay()]+'"></div>';
+		  var input  = '<div><label for="'+dias[dt.getUTCDay()]+'">'+cont+' '+dias[dt.getUTCDay()]+'</label><input type="radio" name="dia" id="'+dias[dt.getUTCDay()]+'"></div>';
 	   	  $("#semana").append(input);    
+	    cont = cont + 1;
 		});
 	};
 </script>
