@@ -6,7 +6,7 @@
 
 	<style>
 		#semana div{
-			margin: 5% auto;
+			margin: 2.5% auto;
 		}
 		#semana label{
 			background: red;
@@ -19,6 +19,9 @@
 	<div id="semana">
 		
 	</div>
+
+
+	<input type="text" name="day" id="day">
 
 
 </body>
@@ -48,6 +51,7 @@
 		console.log(day);
 		$("label").css('background', 'red');
 		$(element).css('background', 'blue');
+		$("#day").val(day);
 	}
 </script>
 </html>
