@@ -3,6 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+
+	<style>
+		#semana div{
+			margin: 5% auto;
+		}
+		#semana label{
+			background: red;
+			padding: 14px;
+		}
+	</style>
 </head>
 <body>
 
@@ -27,10 +37,17 @@
 	    $.each( dias, function( key, value ) {
 	      var dt = new Date('2018-05-'+cont);
 		  
-		  var input  = '<div><label for="'+dias[dt.getUTCDay()]+'">'+cont+' '+dias[dt.getUTCDay()]+'</label><input type="radio" name="dia" id="'+dias[dt.getUTCDay()]+'"></div>';
+		  var input  = '<div><label onclick="select(\''+dias[dt.getUTCDay()]+'\',this)" id="'+dias[dt.getUTCDay()]+'">'+cont+' '+dias[dt.getUTCDay()]+'</label></div>';
 	   	  $("#semana").append(input);    
 	    cont = cont + 1;
 		});
 	};
+
+
+	function select(day, element) {
+		console.log(day);
+		$("label").css('background', 'red');
+		$(element).css('background', 'blue');
+	}
 </script>
 </html>
