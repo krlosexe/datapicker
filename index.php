@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>DocumentS</title>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="owlcarousel/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="owlcarousel/assets/owl.theme.default.min.css">
