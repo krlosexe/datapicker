@@ -21,6 +21,12 @@
 		}
 		.day{
 			background: red;
+			text-align: center;
+			padding: 10% 0;
+		}
+
+		.day label{
+			font-size: 2em;
 		}
 		.owl-nav{
 			position: absolute;
@@ -78,8 +84,8 @@
 	    var cont = 25;
 	    $.each( dias, function( key, value ) {
 	      var dt = new Date('2018-05-'+cont);
-		  
-		  var input  = '<div><div class="day" onclick="select(\''+dias[dt.getUTCDay()]+'\',this)" id="'+dias[dt.getUTCDay()]+'">'+cont+' '+dias[dt.getUTCDay()]+'</div></div>';
+		  var dia_mostrar = traducir_day(dias[dt.getUTCDay()]);
+		  var input  = '<div><div class="day" onclick="select(\''+dias[dt.getUTCDay()]+'\',this)" id="'+dias[dt.getUTCDay()]+'"><span>'+dia_mostrar+'</span> <br><label>'+cont+'</label></div></div>';
 	   	  $("#semana").append(input);    
 	    cont = cont + 1;
 		});
@@ -97,6 +103,32 @@
 		$(".day").css('background', 'red');
 		$(element).css('background', 'blue');
 		$("#day").val(day);
+	}
+
+
+	function traducir_day(day) {
+		if (day == "dom") {
+			return "Domingo"
+		}
+		if (day == "lun") {
+			return "Lunes"
+		}
+
+		if (day == "mar") {
+			return "Martes"
+		}
+		if (day == "mie") {
+			return "Miercoles"
+		}
+		if (day == "jue") {
+			return "Jueves"
+		}
+		if (day == "vie") {
+			return "Viernes"
+		}
+		if (day == "sab") {
+			return "Sabado"
+		}
 	}
 </script>
 </html>
