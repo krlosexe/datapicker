@@ -4,9 +4,20 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 
+	<link rel="stylesheet" href="owlcarousel/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="owlcarousel/assets/owl.theme.default.min.css">
+
 	<style>
+		#agenda{
+			position: relative;
+			background: #eee;
+			width: 500px;
+			overflow: hidden;
+			padding: 1%;
+
+		}
 		#semana div{
-			margin: 2.5% auto;
+			width: 100%;
 		}
 		#semana label{
 			background: red;
@@ -16,17 +27,29 @@
 </head>
 <body>
 
-	<div id="semana">
-		
+	<div id="agenda">
+		<div id="semana" class="owl-carousel">
+			
+		</div>	
 	</div>
 
+	
+	<br>
 
 	<input type="text" name="day" id="day">
 
 
+
+
 </body>
 <script src="jquery.min.js"></script>
+<script src="owlcarousel/owl.carousel.min.js"></script>
 <script>
+
+	$(document).ready(function(){
+	 // $(".owl-carousel").owlCarousel();
+	});
+
 	window.onload = function(){
     var dia="16";
     var mes="November";
@@ -43,6 +66,11 @@
 		  var input  = '<div><label onclick="select(\''+dias[dt.getUTCDay()]+'\',this)" id="'+dias[dt.getUTCDay()]+'">'+cont+' '+dias[dt.getUTCDay()]+'</label></div>';
 	   	  $("#semana").append(input);    
 	    cont = cont + 1;
+		});
+
+		$(".owl-carousel").owlCarousel({
+			margin:1,
+			nav:true,
 		});
 	};
 
