@@ -20,9 +20,10 @@
 			width: 100%;
 		}
 		.day{
-			background: red;
+			border: 1px solid #999;
 			text-align: center;
 			padding: 10% 0;
+			border-radius: 8px;
 		}
 
 		.day label{
@@ -85,7 +86,7 @@
 	    $.each( dias, function( key, value ) {
 	      var dt = new Date('2018-05-'+cont);
 		  var dia_mostrar = traducir_day(dias[dt.getUTCDay()]);
-		  var input  = '<div><div class="day" onclick="select(\''+dias[dt.getUTCDay()]+'\',this)" id="'+dias[dt.getUTCDay()]+'"><span>'+dia_mostrar+'</span> <br><label>'+cont+'</label></div></div>';
+		  var input  = '<div><div class="day" onclick="select(\''+dias[dt.getUTCDay()]+'\',\''+cont+'\',this)" id="'+dias[dt.getUTCDay()]+'"><span>'+dia_mostrar+'</span> <br><label>'+cont+'</label></div></div>';
 	   	  $("#semana").append(input);    
 	    cont = cont + 1;
 		});
@@ -98,11 +99,11 @@
 	};
 
 
-	function select(day, element) {
+	function select(day, cont, element) {
 		console.log(day);
-		$(".day").css('background', 'red');
-		$(element).css('background', 'blue');
-		$("#day").val(day);
+		$(".day").css('border-color', '#999');
+		$(element).css('border-color', '#37c9ff');
+		$("#day").val(cont+' '+day);
 	}
 
 
