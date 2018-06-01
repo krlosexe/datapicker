@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="owlcarousel/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="owlcarousel/assets/owl.theme.default.min.css">
 
@@ -11,7 +11,7 @@
 		#agenda{
 			position: relative;
 			background: #eee;
-			width: 500px;
+			width: 70%;
 			overflow: hidden;
 			padding: 1%;
 
@@ -19,15 +19,31 @@
 		#semana div{
 			width: 100%;
 		}
-		#semana label{
+		.day{
 			background: red;
-			padding: 14px;
+		}
+		.owl-nav{
+			position: absolute;
+			top: -40px;
+			right: 0;
+			text-align: right;
+			margin-right: 2%;
+		}
+
+		.owl-nav i{
+			font-size: 1.6em;
+			color: #37c9ff;
+		}
+
+		.owl-nav button{
+			margin: 0 2%;
 		}
 	</style>
 </head>
 <body>
-
 	<div id="agenda">
+		<h4>Agenda para una visita</h4>
+		<h3>Selecciona un dia</h3>
 		<div id="semana" class="owl-carousel">
 			
 		</div>	
@@ -63,21 +79,22 @@
 	    $.each( dias, function( key, value ) {
 	      var dt = new Date('2018-05-'+cont);
 		  
-		  var input  = '<div><label onclick="select(\''+dias[dt.getUTCDay()]+'\',this)" id="'+dias[dt.getUTCDay()]+'">'+cont+' '+dias[dt.getUTCDay()]+'</label></div>';
+		  var input  = '<div><div class="day" onclick="select(\''+dias[dt.getUTCDay()]+'\',this)" id="'+dias[dt.getUTCDay()]+'">'+cont+' '+dias[dt.getUTCDay()]+'</div></div>';
 	   	  $("#semana").append(input);    
 	    cont = cont + 1;
 		});
 
 		$(".owl-carousel").owlCarousel({
-			margin:1,
+			margin:20,
 			nav:true,
+			navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"]
 		});
 	};
 
 
 	function select(day, element) {
 		console.log(day);
-		$("label").css('background', 'red');
+		$(".day").css('background', 'red');
 		$(element).css('background', 'blue');
 		$("#day").val(day);
 	}
