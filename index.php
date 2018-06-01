@@ -45,6 +45,20 @@
 		.owl-nav button{
 			margin: 0 2%;
 		}
+
+		
+
+		#turno{
+			text-align: center;
+		}
+		#turno div{
+			display: inline-block;
+			padding: 4% 2%;
+			border: 1px solid #eee;
+			text-align: center;
+			border-radius: 8px;
+
+		}
 	</style>
 </head>
 <body>
@@ -54,12 +68,21 @@
 		<div id="semana" class="owl-carousel">
 			
 		</div>	
+
+		<h3>Elije un tiempo se adecue a ti</h3>
+
+		<div id="turno">
+			<div class="turno" onclick="select_turno('Mañana', this)" id="manana"><span>Mañana <br> AM - 12 PM</span></div>
+			<div class="turno" onclick="select_turno('Mediodia', this)" id="medidia"><span>Mediodia <br> 12PM - 13PM</span></div>
+			<div class="turno" onclick="select_turno('Tarde', this)" id="tarde"><span>Tarde <br> 15PM - 19Pm</span></div>
+		</div>
 	</div>
 
 	
 	<br>
 
 	<input type="text" name="day" id="day">
+	<input type="text" name="turno" id="turnos">
 
 
 
@@ -105,6 +128,15 @@
 		$(element).css('border-color', '#37c9ff');
 		$("#day").val(cont+' '+day);
 	}
+
+
+	function select_turno(turno, element) {
+		console.log(turno);
+		$(".turno").css('border-color', '#eee');
+		$(element).css('border-color', '#37c9ff');
+		$("#turnos").val(turno);
+	}
+
 
 
 	function traducir_day(day) {
